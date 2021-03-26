@@ -18,11 +18,36 @@ background_image = "racing.gif";
 yellow_car_img = "yellow_car.png";
 blue_car_img = "blue_car.png";
 
+function add () {
+    background_imgTag = new Image();
+    background_imgTag.onload = uploadBackground; 
+	background_imgTag.src = background_image;   
 
-function uploadcar() {
-    ctx.drawImage(blue_car_imgTag,blue_car_x,blue_car_y,blue_car_width,blue_car_height);  
+	yellow_car_imgTag = new Image(); 
+	yellow_car_imgTag.onload = uploadrover; 
+	yellow_car_imgTag.src = rover_img;   
+
+    blue_car_imgTag = new Image(); 
+	blue_car_imgTag.onload = uploadrover; 
+	blue_car_imgTag.src = rover_img;  
+
+
+}
+
+function uploadBackground () {
+    ctx.drawImage(background_imgTag,0,0,canvas.width,canvas.height); 
+
+}
+
+function upload_car_yellow() {
     ctx.drawImage(yellow_car_imgTag,yellow_car_x,yellow_car_y,yellow_car_width,yellow_car_height);  
 }
+
+function upload_car_blue(){
+ctx.drawImage(blue_car_imgTag,blue_car_x,blue_car_y,blue_car_width,blue_car_height);  
+}
+
+
 
 window.addEventListener("keydown", my_keydown);
 
@@ -92,7 +117,8 @@ function up_yellow_car()
 	{
 		yellow_car_y = yellow_car_y - 10;
 		 uploadBackground();
-		 uploadcar();
+		 upload_car_blue();
+         upload_car_yellow();
 	}
 }
 function down_yellow_car()
@@ -101,7 +127,8 @@ function down_yellow_car()
 	{
 		yellow_car_y =yellow_car_y + 10;
 		uploadBackground();
-		 uploadcar();
+        upload_car_blue();
+        upload_car_yellow();
 	}
 }
 function left_yellow_car()
@@ -110,7 +137,8 @@ function left_yellow_car()
 	{
 		yellow_car_x =yellow_car_x - 10;
 		uploadBackground();
-		 uploadcar();
+        upload_car_blue();
+        upload_car_yellow();
 	}
 }
 function right_yellow_car()
@@ -119,7 +147,8 @@ function right_yellow_car()
 	{
 		yellow_car_x =yellow_car_x + 10;
 		uploadBackground();
-		uploadcar();
+        upload_car_blue();
+        upload_car_yellow();
    }
 }
 
@@ -131,7 +160,8 @@ function up_blue_car()
 	{
 		blue_car_y = blue_car_y - 10;
 		 uploadBackground();
-		 uploadcar();
+		 upload_car_blue();
+         upload_car_yellow();
 	}
 }
 function down_blue_car()
@@ -140,7 +170,8 @@ function down_blue_car()
 	{
 		blue_car_y =blue_car_y + 10;
 		uploadBackground();
-		 uploadcar();
+        upload_car_blue();
+        upload_car_yellow();
 	}
 }
 function left_blue_car()
@@ -148,8 +179,8 @@ function left_blue_car()
 	if(blue_car_x >= 0)
 	{
 		blue_car_x =blue_car_x - 10;
-		uploadBackground();
-		 uploadcar();
+        upload_car_blue();
+        upload_car_yellow();
 	}
 }
 function right_blue_car()
@@ -158,7 +189,8 @@ function right_blue_car()
 	{
 		blue_car_x =blue_car_x + 10;
 		uploadBackground();
-		uploadcar();
+        upload_car_blue();
+        upload_car_yellow();
    }
 }
 	
